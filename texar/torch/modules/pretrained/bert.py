@@ -35,6 +35,7 @@ _BIOBERT_PATH = "https://github.com/naver/biobert-pretrained/releases/download/"
 _SCIBERT_PATH = "https://s3-us-west-2.amazonaws.com/ai2-s2-research/" \
                 "scibert/tensorflow_models/"
 _SPANBERT_PATH = "https://dl.fbaipublicfiles.com/fairseq/models/"
+_DISTILBERT_PATH = "https://s3.amazonaws.com/models.huggingface.co/bert/"
 
 
 class PretrainedBERTMixin(PretrainedMixin, ABC):
@@ -113,6 +114,22 @@ class PretrainedBERTMixin(PretrainedMixin, ABC):
         * ``spanbert-large-cased``: SpanBERT using the BERT-large architecture,
           24-layer, 1024-hidden, 16-heads, 340M parameters.
 
+    * **DistilBERT**: proposed in (`Sanh et al.`. 2019)
+      `DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter`_
+      . A distilled model trained from the supervision of BERT. Available model
+      names include:
+
+        * ``distilbert-base-uncased``: 6-layer, 768-hidden. 12 heads,
+          66M parameters.
+        * ``distilbert-base-uncased-distilled-squad``: A fine-tuned version of
+          ``distilbert-base-uncased`` fine tuned using knowledge distillation
+          on SQuAD 1.0.
+        * ``distilbert-base-cased``: 6-layer, 768-hidden. 12 heads,
+          65M parameters.
+        * ``distilbert-base-cased-distilled-squad``: A fine-tuned version of
+          ``distilbert-base-cased`` fine tuned using knowledge distillation
+          on SQuAD 1.0.
+
     We provide the following BERT classes:
 
       * :class:`~texar.torch.modules.BERTEncoder` for text encoding.
@@ -130,6 +147,9 @@ class PretrainedBERTMixin(PretrainedMixin, ABC):
 
     .. _`SpanBERT: Improving Pre-training by Representing and Predicting Spans`:
         https://arxiv.org/abs/1907.10529
+
+    .. _`DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter`:
+        https://arxiv.org/abs/1910.01108
     """
 
     _MODEL_NAME = "BERT"
