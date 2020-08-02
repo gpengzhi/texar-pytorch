@@ -20,13 +20,13 @@ install:
 - pip install --upgrade pip
 - pip install --progress-bar off torch==$TORCH_VER
 - pip install --progress-bar off .[extras]
-- if [[ $TORCH_VER == "1.4.0" ]]; then pip install pylint==2.4.4 flake8==3.7.9; fi
+- if [[ $TORCH_VER == "1.6.0" ]]; then pip install pylint==2.4.4 flake8==3.7.9; fi
 - if [[ $TORCH_VER != "1.0.1" ]]; then pip install mypy==0.761; fi
 - pip install pytest
 - pip install coverage codecov
 script:
-- if [[ $TORCH_VER == "1.4.0" ]]; then pylint texar/ examples/; fi
-- if [[ $TORCH_VER == "1.4.0" ]]; then flake8 texar/ examples/; fi
+- if [[ $TORCH_VER == "1.6.0" ]]; then pylint texar/ examples/; fi
+- if [[ $TORCH_VER == "1.6.0" ]]; then flake8 texar/ examples/; fi
 - if [[ $TORCH_VER != "1.0.1" ]]; then mypy .; fi
 - if [[ $TORCH_VER != "1.0.1" ]]; then _rc=0; for dir in `echo examples/**/`; do mypy
   $dir || _rc=$?; done && [[ $_rc == 0 ]]; fi
